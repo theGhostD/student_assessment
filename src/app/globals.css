@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+body {
+  background-color: #edf1f3;
+}
+.ant-drawer .ant-drawer-body {
+  padding: 0px !important;
+}
