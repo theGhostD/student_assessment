@@ -23,7 +23,7 @@ const SideBar = () => {
       </div>
 
       <div
-        className={` lg:h-[87%] h-[80%]  hover:overflow-auto   flex justify-between flex-col `}
+        className={`  h-[77%]  hover:overflow-auto   flex justify-between flex-col `}
       >
         {/* side bar Items  */}
         <div className="mx-[21px] mt-[30px] mb-10 pb-10   flex flex-col gap-4 ">
