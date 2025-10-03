@@ -4,7 +4,7 @@ export const subjectFilter = ["MatheMatics", "English", "Physics"];
 
 export const category = ["Theatre", "Science", "Physics"];
 
-export const examList = [
+export const examListMock = [
   {
     id: "1",
     title: "Mat 202 | Actuarial Vector Analysis",

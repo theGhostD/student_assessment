@@ -1,31 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { FiEdit } from "react-icons/fi";
 import { RiDeleteBinLine } from "react-icons/ri";
 import CustomButton from "../customBtn";
-interface examProps {
-  id: String;
-  title: String;
-  year: String;
-  dateCreated: String;
-  dateDue: String;
-  weight: String;
-  maxPoints: number;
-  passingThreshold: number;
-  status: String;
-  course: String;
-  description: String;
-  visible: boolean;
-}
-interface examCardProps {
-  currentExam: examProps;
-}
+import { examCardProps } from "@/utils/interfaces";
+import Modals from "../modals";
+import CreateExam from "../modals/createExam";
+import DeleteModal from "../modals/deleteExam";
 
-const ExamCard = ({ currentExam }: examCardProps) => {
-  const { title, year, dateCreated, dateDue, weight, maxPoints } =
+const ExamCard = ({ currentExam, setRefetch }: examCardProps) => {
+  const { title, year, dateCreated, dateDue, weight, maxPoints, visible } =
     currentExam ?? {};
+  // Edit exam modal
+  const [isEditExamModal, setIsEditExamModal] = useState(false);
+  // delete exam modal
+  const [isDeleteExamModal, setIsDeleteExamModal] = useState(false);
+
   return (
     <div className="rounded-[24px] w-full py-8 px-5 !bg-[#F3EBE4]  ">
-      <p className="text-[#383D41] text-[18px] font-[700] leading-[21px] w-full truncate  ">
+      <p className="text-[#383D41] text-[18px] font-[700] leading-[21px] w-full truncate  capitalize ">
         {title}
       </p>
 
@@ -56,7 +48,7 @@ const ExamCard = ({ currentExam }: examCardProps) => {
             Weight:
           </p>
           <p className="text-[#383D41] text-[14px] font-[400] leading-[21px]  ">
-            <span className="font-bold" >{weight}</span> of final grade
+            <span className="font-bold">{weight}</span> of final grade
           </p>
         </div>
 
@@ -65,25 +57,52 @@ const ExamCard = ({ currentExam }: examCardProps) => {
             Student Attempted:
           </p>
           <p className="text-[#383D41] text-[14px] font-[400] leading-[21px]  ">
-            85/<span className="font-[700]" >{maxPoints}</span>
+            85/<span className="font-[700]">{maxPoints}</span>
           </p>
         </div>
       </div>
 
       <div className="flex justify-between items-center mt-4   ">
         <div className="flex justify-start items-center gap-3 ">
-          <FiEdit className="!text-[20px] text-[#383d41e4] " />
-          <RiDeleteBinLine className="!text-[20px] !text-[#ff0000ec] " />
-        </div>
-        <div className="w-[120px]">
-          <CustomButton
-            text="Grade Now"
-            handleSubmit={() => {}}
-            variant="darkTheme"
-            isSmall
+          <FiEdit
+            className="!text-[20px] text-[#383d41e4] cursor-pointer "
+            onClick={() => setIsEditExamModal(true)}
+          />
+          <RiDeleteBinLine
+            className="!text-[20px] !text-[#ff0000ec] cursor-pointer "
+            onClick={() => setIsDeleteExamModal(true)}
           />
         </div>
+        <div className="w-[120px]">
+          {visible ? (
+            <CustomButton
+              text="Grade Now"
+              handleSubmit={() => {}}
+              variant="darkTheme"
+              isSmall
+            />
+          ) : (
+            <p className="text-[red]  text-end ">Not visible</p>
+          )}
+        </div>
       </div>
+
+      {/* Edit exam  */}
+      <Modals open={isEditExamModal} setOpen={setIsEditExamModal}>
+        <CreateExam
+          setOpen={setIsEditExamModal}
+          currentExam={currentExam}
+          setRefetch={setRefetch}
+        />
+      </Modals>
+      {/* delete exam  */}
+      <Modals open={isDeleteExamModal} setOpen={setIsDeleteExamModal}>
+        <DeleteModal
+          setOpen={setIsDeleteExamModal}
+          currentExam={currentExam}
+          setRefetch={setRefetch}
+        />
+      </Modals>
     </div>
   );
 };
