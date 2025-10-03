@@ -5,10 +5,15 @@ export const antdTheme: ThemeConfig = {
   token: {
     colorPrimary : '#212C58',
     
-    controlHeightLG: 40,
-    controlHeight: 40,
+    controlHeightLG: 56,
+    controlHeight: 56,
   },
   components: {
-   
+    Modal: {
+       contentBg : '#FCF6F0'
+      },
+       DatePicker: {
+        cellHeight : 20,
+      },
   },
 };

@@ -4,7 +4,7 @@ import { images } from "@/theme";
 import { Drawer, Input } from "antd";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
-import ProfileDropdown from "../sidebar/profileSidebar";
+import ProfileDropdown from "../profileSidebar";
 import { CiMenuFries } from "react-icons/ci";
 import SideBar from "../sidebar";
 
@@ -49,7 +49,7 @@ const Navbar = () => {
             />
           }
           placeholder="Search..."
-          className="md:!w-[340px] !bg-transparent  !outline-none !shadow-none bg "
+          className="md:!w-[340px] !bg-transparent h-[40px] !outline-none !shadow-none !py-0  "
         />
 
         <Image
@@ -62,14 +62,15 @@ const Navbar = () => {
         />
 
         <CiMenuFries
-          className="lg:!hidden !block !text-[36px]  "
+          className="lg:!hidden !block !36px]  "
           onClick={() => setIsSideBarDrawerOpen(true)}
         />
       </div>
       {/* profile dropdown  */}
       {isprofileDropDownOpen && (
         <div
-          className={` absolute mt-[6px] 2xl:!right-[300px] right-[20px] min-w-[240px] border   rounded-[12px] shadow-[#10182808] shadow-lg drop-shadow border-[#EAECF0] bg-[white] flex flex-col gap-2 ease-in-out transition-all !z-[2000] `}
+          className={` absolute mt-[6px] 2xl:right-[300px] right-[20px] min-w-[240px] border  
+             rounded-[12px] shadow-[#10182808] shadow-lg drop-shadow border-[#EAECF0] bg-[white] flex flex-col gap-2 ease-in-out transition-all !z-[2000] `}
           ref={profileRef}
           style={{
             boxShadow: "0px 12px 16px -4px rgba(16, 24, 40, 0.08)",
@@ -80,6 +81,8 @@ const Navbar = () => {
           />
         </div>
       )}
+
+
       {/* mobile side bar  */}
       <Drawer
         size="large"
