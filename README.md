@@ -1,13 +1,17 @@
 # student_assessment
 Beyond Boundaries,Within Reach
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Student Assessment (student_portal) — a Next.js web application for managing student assessments and administrative workflows. It’s a component-driven UI built with the Next.js App Router (React + TypeScript), focused on reusable UI Components (inputs, dropdowns, buttons, cards), modular layouts (navbar, sidebar, profile dropdown, dashboard layout), and small modal flows for CRUD actions on exams.
 
 ## Getting Started
 
 First, run the development server:
 
+
 ```bash
+
+npm i 
+
 npm run dev
 # or
 yarn dev
@@ -19,21 +23,27 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech stack
+ 
+-Next.js (App Router) + React (server/client components)
+-TypeScript
+-Tailwind for stying
+-Ant Design theming (custom theme file)
+-localstorage for CRUD operations
+-Static assets  from  assets
+-Modern bundlers and package manager via package.json (project generated with create-next-app)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Architecture & structure
 
-## Learn More
+-App-level entry: layout.tsx and page.tsx .
+-Component-driven UI: components contains small, focused components (card, customBtn, customInput, custom_dropdown, RadioComponent, navbar, sidebar, profileSidebar) for  reuse and composability.
+-Layouts and pages: dashboardLayout.tsx — shows how pages are wrapped in consistent layout shells (navigation, sidebar, top bar).
+-Modals and flows: modals includes modal patterns and nested modal implementations for creating and deleting exams
+-Utilities: utils (interfaces, routes, mocks) and index.tsx — demonstrates typed interfaces, route constants, and local mocked data used for development/testing.
 
-To learn more about Next.js, take a look at the following resources:
+## Key components 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Reusable UI components: customInput, customBtn, custom_dropdown, card.
+Sidebar & navigation: sidebar/index.tsx and navbar/index.tsx 
+Dashboard layout: dashboardLayout.tsx 
+Modals for CRUD: modals/createExam and modals/deleteExam —  form validations, and user confirmation flows.
