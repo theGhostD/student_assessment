@@ -26,6 +26,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Tech stack
  
 -Next.js (App Router) + React (server/client components)
+
 -TypeScript
 
 -Tailwind for stying
