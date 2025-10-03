@@ -37,7 +37,7 @@ const Navbar = () => {
 
   return (
     <div className="   ">
-      <div className="flex justify-center border md:justify-end items-center gap-3">
+      <div className="flex justify-center  md:justify-end items-center gap-3">
         <Input
           prefix={
             <Image
