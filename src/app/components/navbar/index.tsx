@@ -37,7 +37,7 @@ const Navbar = () => {
 
   return (
     <div className="   ">
-      <div className="flex justify-end items-center gap-3">
+      <div className="flex justify-center border md:justify-end items-center gap-3">
         <Input
           prefix={
             <Image
@@ -60,9 +60,9 @@ const Navbar = () => {
           className="rounded-full object-cover cursor-pointer"
           onClick={() => setIsprofileDropDownOpen(true)}
         />
-        <div className="min-w-[36px] min-h-[36px]  lg:!hidden !block ">
+        <div className="min-w-[24px] min-h-[24px]  lg:!hidden !block ">
           <CiMenuFries
-            className="!36px]  "
+            className="!text-[24px]  "
             onClick={() => setIsSideBarDrawerOpen(true)}
           />
         </div>
