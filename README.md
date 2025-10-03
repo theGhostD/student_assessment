@@ -27,23 +27,35 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
  
 -Next.js (App Router) + React (server/client components)
 -TypeScript
+
 -Tailwind for stying
+
 -Ant Design theming (custom theme file)
+
 -localstorage for CRUD operations
+
 -Static assets  from  assets
+
 -Modern bundlers and package manager via package.json (project generated with create-next-app)
 
 ## Architecture & structure
 
 -App-level entry: layout.tsx and page.tsx .
+
 -Component-driven UI: components contains small, focused components (card, customBtn, customInput, custom_dropdown, RadioComponent, navbar, sidebar, profileSidebar) for  reuse and composability.
+
 -Layouts and pages: dashboardLayout.tsx — shows how pages are wrapped in consistent layout shells (navigation, sidebar, top bar).
+
 -Modals and flows: modals includes modal patterns and nested modal implementations for creating and deleting exams
+
 -Utilities: utils (interfaces, routes, mocks) and index.tsx — demonstrates typed interfaces, route constants, and local mocked data used for development/testing.
 
 ## Key components 
 
-Reusable UI components: customInput, customBtn, custom_dropdown, card.
-Sidebar & navigation: sidebar/index.tsx and navbar/index.tsx 
-Dashboard layout: dashboardLayout.tsx 
-Modals for CRUD: modals/createExam and modals/deleteExam —  form validations, and user confirmation flows.
+-Reusable UI components: customInput, customBtn, custom_dropdown, card
+
+-Sidebar & navigation: sidebar/index.tsx and navbar/index.tsx 
+
+-Dashboard layout: dashboardLayout.tsx 
+
+-Modals for CRUD: modals/createExam and modals/deleteExam —  form validations, and user confirmation flows.
