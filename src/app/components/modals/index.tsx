@@ -24,7 +24,7 @@ const Modals = ({ children, open, setOpen }: Props) => {
         closable={false}
         destroyOnHidden
         keyboard
-        className={` xl:!w-[35%] md:!w-[50%] !w-[90%]`}
+        className={` xl:!w-[35%] md:!w-[50%] !w-[90%] max-h-[70%] `}
       >
         {children}
       </Modal>

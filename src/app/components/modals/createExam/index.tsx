@@ -170,7 +170,7 @@ const CreateExam = ({ setOpen, setRefetch, currentExam }: CreateExamProps) => {
             isrequired
           />
         </div>
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-2 2xl:grid-cols-3 gap-4">
           <CustomInput
             label="Maximum Point"
             placeholder="Max. point"
