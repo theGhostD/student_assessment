@@ -7,14 +7,10 @@ import { FaCaretDown } from "react-icons/fa";
 import RadioComponent from "../../RadioComponent";
 import CustomButton from "../../customBtn";
 import { BiSave } from "react-icons/bi";
-import { examProps } from "@/utils/interfaces";
+import { CreateExamProps, examProps } from "@/utils/interfaces";
 import { dateToString, stringToDate } from "@/helpers";
 import dayjs from "dayjs";
-interface CreateExamProps {
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  setRefetch: React.Dispatch<React.SetStateAction<number>>;
-  currentExam?: examProps | undefined;
-}
+
 const CreateExam = ({ setOpen, setRefetch, currentExam }: CreateExamProps) => {
   const [form] = Form.useForm();
   const values = Form.useWatch([], form);
@@ -36,8 +32,8 @@ const CreateExam = ({ setOpen, setRefetch, currentExam }: CreateExamProps) => {
           year: "YR 2",
           dateCreated: dateToString(now),
           dateDue: dateToString(values?.date),
-          weight: values?.Weighted,
-          maxPoints: values?.Mpoint,
+          weight: parseFloat(values?.Weighted),
+          maxPoints: parseFloat(values?.Mpoint),
           passingThreshold: values?.PassingThreshold,
           status: "Not Attempted",
           course: values?.Course,
@@ -71,8 +67,8 @@ const CreateExam = ({ setOpen, setRefetch, currentExam }: CreateExamProps) => {
           year: "YR 2",
           dateCreated: dateToString(now),
           dateDue: dateToString(values?.date),
-          weight: values?.Weighted,
-          maxPoints: values?.Mpoint,
+          weight: parseFloat(values?.Weighted),
+          maxPoints: parseFloat(values?.Mpoint),
           passingThreshold: values?.PassingThreshold,
           status: "Not Attempted",
           course: values?.Course,
@@ -180,12 +176,15 @@ const CreateExam = ({ setOpen, setRefetch, currentExam }: CreateExamProps) => {
             placeholder="Max. point"
             fieldName="Mpoint"
             isrequired
+            isNumber
           />
           <CustomInput
             label="Weighted"
             placeholder="Enter weight"
             fieldName="Weighted"
             isrequired
+            ispercentage
+            isNumber
           />
 
           <CustomInput
@@ -193,6 +192,7 @@ const CreateExam = ({ setOpen, setRefetch, currentExam }: CreateExamProps) => {
             placeholder="Enter Passing"
             fieldName="PassingThreshold"
             isrequired
+            isNumber
           />
         </div>
 

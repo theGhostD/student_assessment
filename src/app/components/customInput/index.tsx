@@ -1,18 +1,15 @@
+import { CustomInputProps } from "@/utils/interfaces";
 import { Form, Input } from "antd";
 import React, { ChangeEvent, useState } from "react";
-interface CustomInputProps {
-  fieldName: string;
-  label: string;
-  isrequired?: boolean;
-  placeholder: string;
-  autocompleteValue?: string;
-}
+
 const CustomInput = ({
   fieldName,
   label,
   isrequired,
   placeholder,
   autocompleteValue,
+  isNumber,
+  ispercentage,
 }: CustomInputProps) => {
   const [inputValue, setInputValue] = useState<string>(
     autocompleteValue ? autocompleteValue : ""
@@ -26,11 +23,7 @@ const CustomInput = ({
     <Form.Item
       name={fieldName}
       className={`!mb-0 !mt-1`}
-      label={
-        label ? (
-          label
-        ) : null
-      }
+      label={label ? label : null}
       rules={isrequired ? [{ required: true }] : undefined}
     >
       <Input
@@ -38,6 +31,8 @@ const CustomInput = ({
         placeholder={placeholder}
         onChange={(e) => handleChange(e)}
         value={inputValue}
+        type={isNumber ? "number" : "text"}
+        suffix={ispercentage && <p>%</p>}
       />
     </Form.Item>
   );

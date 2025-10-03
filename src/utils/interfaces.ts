@@ -49,3 +49,25 @@ export interface examCardProps {
   currentExam: examProps;
   setRefetch : React.Dispatch<React.SetStateAction<number>>;
 }
+
+export interface CustomInputProps {
+  fieldName: string;
+  label: string;
+  isrequired?: boolean;
+  placeholder: string;
+  autocompleteValue?: string;
+  isNumber?: boolean;
+  ispercentage?: boolean;
+}
+
+export interface CreateExamProps {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setRefetch: React.Dispatch<React.SetStateAction<number>>;
+  currentExam?: examProps | undefined;
+}
+
+export interface DeleteModalProps {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setRefetch: React.Dispatch<React.SetStateAction<number>>;
+  currentExam?: examProps | undefined;
+}

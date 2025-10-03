@@ -1,13 +1,9 @@
-import { examProps } from "@/utils/interfaces";
+import { DeleteModalProps, examProps } from "@/utils/interfaces";
 import React, { useState } from "react";
 import { CiWarning } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
 import CustomButton from "../../customBtn";
-interface DeleteModalProps {
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  setRefetch: React.Dispatch<React.SetStateAction<number>>;
-  currentExam?: examProps | undefined;
-}
+
 const DeleteModal = ({
   setOpen,
   setRefetch,

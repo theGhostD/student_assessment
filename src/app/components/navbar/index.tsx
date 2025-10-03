@@ -60,11 +60,12 @@ const Navbar = () => {
           className="rounded-full object-cover cursor-pointer"
           onClick={() => setIsprofileDropDownOpen(true)}
         />
-
-        <CiMenuFries
-          className="lg:!hidden !block !36px]  "
-          onClick={() => setIsSideBarDrawerOpen(true)}
-        />
+        <div className="min-w-[36px] min-h-[36px]  lg:!hidden !block ">
+          <CiMenuFries
+            className="!36px]  "
+            onClick={() => setIsSideBarDrawerOpen(true)}
+          />
+        </div>
       </div>
       {/* profile dropdown  */}
       {isprofileDropDownOpen && (
@@ -81,7 +82,6 @@ const Navbar = () => {
           />
         </div>
       )}
-
 
       {/* mobile side bar  */}
       <Drawer
